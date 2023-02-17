@@ -1,0 +1,8 @@
+---
+instances:
+  - region: us-east-1
+    instance: rds-instance-name
+    aws_access_key: aws_access_key_here
+    aws_secret_key: aws_secret_key_here
+    disable_basic_metrics: true
+    disable_enhanced_metrics: false
