@@ -1,4 +1,9 @@
-== How to run ==
+# Use
+
+Made this to quickly make a working Docker container for [Percona's rds-exporter](https://github.com/percona/rds_exporter/blob/main/config/config.go#L20-L29) because they removed their official one off Docker Hub for some reason.
+The Dockerfile in their repo also doesn't build because it expects a compiled binary from the go source code. So my Dockerfile compiles it.
+
+# How to run
 
 Build it:
 
@@ -8,20 +13,22 @@ Make a directory for a bind mount:
 
 `mkdir ./rds_config`
 
-Run the command with the absolute path to the config folder
+Make a 'config.yml' file based off their README docs.
+
+Run the Docker command with the absolute path to the config folder
 
 ```
 current_dir=$(pwd)
-docker run --name rds_exporter -v $current_dir/config:/etc/rds_exporter/ rds_exporter:latest
+docker run --name rds_exporter -v $current_dir/rds-config/:/etc/rds_exporter/ rds_exporter:latest
 ```
 
-== Run with Docker Compose ==
+# Run with Docker Compose
 
 Clone: 
 
 `git clone https://github.com/floptical/rds_exporter ./rds_exporter_build`
 
-Setup your rds config dir as described above and then in your compose file,
+Setup your rds config directory as described above and then in your compose file,
 
 ```
   rds-exporter:
