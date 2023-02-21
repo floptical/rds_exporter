@@ -10,7 +10,7 @@ RUN go build
 
 ##############################################################
 
-FROM alpine:3.10
+FROM alpine:3.17
 
 COPY --from=builder /rds_exporter/rds_exporter /bin/
 
